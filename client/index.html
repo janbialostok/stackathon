@@ -1,0 +1,28 @@
+<head>
+  <title>video_final</title>
+</head>
+
+<body>
+  <main>
+	{{> nav}}
+	{{#if currentUser}}
+		{{#if userProfile.count}}
+			{{#each userProfile}}
+		    	{{> profile}}
+		    {{/each}}
+		{{else}}
+			{{#if emptyViewHelper}}
+				<h2>Sorry, there are no users by this username...</h2>
+			{{else}}
+				{{> createProfile}}
+			{{/if}}
+		{{/if}}
+	{{else}}
+		{{> notLogged}}
+	{{/if}}
+  </main>
+</body>
+
+<template name="notLogged">
+  <h2>Please create an account above...</h2>
+</template>

@@ -1,0 +1,25 @@
+<template name="profile">
+	<div class="profile">
+		<section class="appRow">
+			{{> userImage}}
+			{{> userHeadline}}
+			{{#if compareProfile}}
+				<aside class="userAction">
+					{{#if isFriend}}
+						<button id="requestChat" class="btn"><img src="http://www.graduationsource.com/skin/frontend/meigeetheme/v2/images/live-chat-icon.png"></button>
+						<button id="endFriend" class="btn"><img src="https://cdn0.iconfinder.com/data/icons/simple-icons-ii/69/10-20.png"></button>
+					{{else}}
+						<button id="requestAdd" class="btn"><img src="https://www.cool.navy.mil/usn/images/tabPlus.png"></button>
+					{{/if}}
+				</aside>
+			{{/if}}
+		</section>
+		<section class="appRow">
+			{{> userInfo}}
+			{{> userAbout}}
+		</section>
+		<section class="appRow">
+			{{> userSlideshow}}
+		</section>
+	</div>
+</template>

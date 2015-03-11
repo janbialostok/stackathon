@@ -1,0 +1,54 @@
+<template name="userInfo">
+	<aside id="userInfo">
+		{{#if compareProfile}}
+		{{#if infoEditing}}
+			<form class="userInfoForm">
+				<div class="form-group">
+					<label for="firstName">First Name</label>
+					<input type="text" name="firstName" class="form-control" value="{{first}}">
+				</div>
+				<div class="form-group">
+					<label for="lastName">Last Name</label>
+					<input type="text" name="lastName" class="form-control" value="{{last}}">
+				</div>
+				<div class="form-group">
+					<label for="username">Username</label>
+					<input type="text" name="username" class="form-control" value="{{username}}">
+				</div>
+				<div class="form-group">
+					<label for="email">Email</label>
+					<input type="text" name="email" class="form-control" value="{{email}}">
+				</div>
+				<div class="form-group">
+					<label for="city">City</label>
+					<input type="text" name="city" class="form-control" value="{{city}}">
+				</div>
+				<div class="editButton">
+					<button type="submit">Save</button>
+				</div>
+			</form>
+		{{else}}
+			<h4>Name</h4>
+			<p>{{name}}</p>
+			<h4>Username</h4>
+			<p>{{username}}</p>
+			<h4>Email</h4>
+			<p>{{email}}</p>
+			<h4>City</h4>
+			<p>{{city}}</p>
+			<div class="editButton" id="infoEdit">
+				<button>Edit</button>
+			</div>
+		{{/if}}
+		{{else}}
+			<h4>Name</h4>
+			<p>{{name}}</p>
+			<h4>Username</h4>
+			<p>{{username}}</p>
+			<h4>Email</h4>
+			<p>{{email}}</p>
+			<h4>City</h4>
+			<p>{{city}}</p>
+		{{/if}}
+	</aside>
+</template>
