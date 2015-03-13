@@ -1,8 +1,9 @@
 <template name="chatView">
-	<main class="chatView">
+	<main id="chatView" class="chatView">
 		<div class="chatControl">
 			<h4>{{contact}}</h4>
-			<div class="chatBubble">
+			<div id="chatBubble" class="chatBubble">
+				<video id="localVideo" autoplay></video>
 				{{#each chat.messages}}
 					<p>{{this}}</p>
 				{{/each}}
@@ -15,6 +16,9 @@
 			</form>
 			<button id="profile" value="{{contact}}">Profile</button>
 			<button id="chat" value="{{contact}}">Chat</button>
+			{{#if stream.count}}
+				<button id="stream">Stream</button>
+			{{/if}}
 		</div>
 	</main>
 </template>

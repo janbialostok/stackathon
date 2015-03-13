@@ -16,5 +16,11 @@ if (Meteor.isServer) {
 			return Messages.find({ users: {$elemMatch: {$in: [user]}} });
 		}
 	});
-  	  
+
+	Meteor.publish("stream", function (streamId){
+		if (streamId){
+			return Streams.find({ streamId: streamId })
+		}
+	});
+ 	  
 }
