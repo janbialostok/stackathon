@@ -1,8 +1,10 @@
-<template name="contactsList">
+<template id="contactsList" name="contactsList">
 	<div class="profile">
+		{{friends.count}}
 		<section class="appRow">
 			<h3>Contact List</h3>
 			{{> contactsOnline}}
+			{{> contactsOffline}}
 		</section>
 		<section class="appRow">
 			{{> contactsRandomize}}

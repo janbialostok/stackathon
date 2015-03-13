@@ -1,0 +1,31 @@
+<template name="requests">
+	<div class="profile">
+		<section class="appRow">
+			<h4>Your pending requests</h4>
+			<div id="pending_requests" class="request_panel">
+				{{#each request_items}}
+					<div class="request_row">
+						<div>
+							{{reqUser}}
+							<button class="btn" value="{{reqUser}} Accept">Accept</button>
+							<button class="btn" value="{{reqUser}} Deny">Deny</button>
+						</div>
+					</div>
+				{{/each}}
+			</div>
+		</section>
+		<section class="appRow">
+			<h4>Your completed requests</h4>
+			<div id="completed_requests" class="request_panel">
+				{{#each completed_items}}
+					<div class="request_row">
+						<div>
+							{{username}}
+							{{status}}
+						</div>
+					</div>
+				{{/each}}
+			</div>
+		</section>
+	</div>
+</template>

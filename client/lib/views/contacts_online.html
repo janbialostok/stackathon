@@ -1,0 +1,10 @@
+<template name="contactsOnline">
+	<div class="col-lg-6">
+		<section class="contactsPanel" id="contactsOnline">
+			<h4>Currently Online</h4>
+			{{#each contacts}}
+				<button value="{{username}}">{{username}}</button>
+			{{/each}}
+		</section>
+	</div>
+</template>

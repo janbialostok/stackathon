@@ -7,9 +7,17 @@
 	{{> nav}}
 	{{#if currentUser}}
 		{{#if userProfile.count}}
-			{{#each userProfile}}
-		    	{{> profile}}
-		    {{/each}}
+			{{#if openChat}}
+				{{> contactsList}}
+			{{else}}
+				{{#if seeRequests}}
+					{{> requests}}
+				{{else}}
+					{{#each userProfile}}
+				    	{{> profile}}
+				    {{/each}}
+				{{/if}}
+			{{/if}}
 		{{else}}
 			{{#if emptyViewHelper}}
 				<h2>Sorry, there are no users by this username...</h2>
@@ -21,6 +29,9 @@
 		{{> notLogged}}
 	{{/if}}
   </main>
+	{{#if connected.count}}
+		{{> chatView}}
+	{{/if}}
 </body>
 
 <template name="notLogged">
