@@ -8,3 +8,5 @@ meteor-platform
 accounts-ui
 accounts-password
 reywood:bootstrap3-sass
+accounts-twitter
+accounts-google

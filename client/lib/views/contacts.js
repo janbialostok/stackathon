@@ -45,28 +45,28 @@ Template.chatView.helpers({
 		return Session.get("chattingWith");
 	},
 	chat: function(){
-		console.log(Session.get("connectMsg"));
 		return Session.get("connectMsg");
 	},
 	stream: function(){
-		console.log(Session.get("connectMsg")._id);
 		Meteor.subscribe("stream", Session.get("connectMsg")._id);
-		return Streams.find({});
+		var streamSubscription = Streams.find({});
+		return streamSubscription;
 	}
 });
-
+var comm;
 Template.chatView.events({
-	"click #profile": function() {
+	"click #exit": function() {
 		Meteor.call("disconnect", Session.get("connectRequest"), Meteor.user().username, Session.get("connectMsg")._id);
 		Session.set("connectRequest", undefined);
+		comm.close();
 	},
 	"click #chat": function(event) {
 		var chatting = Messages.find({}).fetch()[0];
-		var comm = new Icecomm('k/J5M7YZPAHdjib87Cubf7pPm4pyUtuCN8kxbexjCEV0PZZkKK');
+		comm = new Icecomm('k/J5M7YZPAHdjib87Cubf7pPm4pyUtuCN8kxbexjCEV0PZZkKK');
 		comm.connect(chatting._id);
 		Meteor.call("openStream", chatting._id, chatting.users[0], chatting.users[1]);
 		comm.on('connected', function (options){
-			document.getElementById('chatView').appendChild(options.video);
+			document.getElementById('external').appendChild(options.video);
 			event.target.disabled = true;
 		});
 		comm.on('local', function (options){
@@ -86,12 +86,12 @@ Template.chatView.events({
 		return false;
 	},
 	"click #stream": function (event){
-		var comm = new Icecomm('k/J5M7YZPAHdjib87Cubf7pPm4pyUtuCN8kxbexjCEV0PZZkKK');
+		comm = new Icecomm('k/J5M7YZPAHdjib87Cubf7pPm4pyUtuCN8kxbexjCEV0PZZkKK');
 		console.log("Stream ID", Session.get("connectMsg")._id);
 		comm.connect(Session.get("connectMsg")._id);
 		console.log(comm);
 		comm.on('connected', function (options){
-			document.getElementById('chatView').appendChild(options.video);
+			document.getElementById('external').appendChild(options.video);
 			event.target.disabled = true;
 		});
 		comm.on('local', function (options){

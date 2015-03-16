@@ -1,8 +1,7 @@
 if (Meteor.isServer) {
   
 	Meteor.publish("profiles", function(user){
-		if (!user) return UserProfiles.find({});
-		else return UserProfiles.find({ username: user });
+		return UserProfiles.find({ username: user });
 	});
 
 	Meteor.publish("friends", function(user){
@@ -20,6 +19,13 @@ if (Meteor.isServer) {
 	Meteor.publish("stream", function (streamId){
 		if (streamId){
 			return Streams.find({ streamId: streamId })
+		}
+	});
+
+	Meteor.publish("user", function (userId){
+		if (userId){
+			console.log(userId);
+			return Meteor.users.find({ _id: userId });
 		}
 	});
  	  

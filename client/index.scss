@@ -215,27 +215,46 @@ main {
 .chatView {
 	background-color: rgba(0,0,0,0.8);
 	width: 100%;
-	height: 800px;
+	height: 100%;
 	position: absolute;
 	top: 0%;
 	left: 0%;
-	video {
-	    height: 200px;
+	#localVideo {
+	    height: auto;
 	    width: 200px;
+	}
+	video {
+		width: 450px;
+		height: auto;
+		border-radius: 5px;
 	}
 }
 
 .chatControl {
-	width: 50%;
-	height: 50%;
-	margin: 10% auto;
+	position:fixed;
+	left:0%;
+	bottom:0%;
+	width: 100%;
+	height: 40%;
 	background-color: grey;
 }
 
+#external {
+	float: left;
+	width: 80%;
+	display: inline;
+}
+
+#local {
+	float: left;
+	width: 20%;
+	display: inline;
+}
+
 .chatBubble {
-	width: 95%;
+	width: 100%;
 	margin: auto;
-	height: 55%;
+	height: 40%;
 	border-radius: 10px;
 	background-color: #F7F7F7;
 	overflow-y: auto;
