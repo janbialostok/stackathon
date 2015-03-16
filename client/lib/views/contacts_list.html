@@ -7,7 +7,12 @@
 			{{> contactsOffline}}
 		</section>
 		<!-- <section class="appRow">
-			{{> contactsRandomize}}
+			<section class="contactsPanel" id="contactsAroundMe">
+				<h4>People Around Me</h4>
+				{{#each aroundMe}}
+					<button value="{{username}}">{{username}}</button>
+				{{/each}}
+			</section>
 		</section> -->
 	</div>
 </template>

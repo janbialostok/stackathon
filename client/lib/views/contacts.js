@@ -18,6 +18,13 @@ Template.contactsList.helpers({
 	offline: function(){
 		return Session.get("offlineFriends");
 	}
+	// aroundMe: function(){
+	// 	var city = Session.get("userCity");
+	// 	Meteor.subscribe("usersAroundMe", city);
+	// 	var users = UserProfiles.find({});
+	// 	console.log(users.fetch());
+	// 	return users;
+	// }
 });
 
 Template.contactsOnline.helpers({

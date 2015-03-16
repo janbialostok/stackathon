@@ -33,6 +33,7 @@ Template.body.helpers({
                 });
             }
             Session.set("userProfileId", profile[0]._id);
+            Session.set("userCity", profile[0].city);
 	    	return UserProfiles.find({});
     	}
     },

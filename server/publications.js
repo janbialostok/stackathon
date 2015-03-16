@@ -28,5 +28,11 @@ if (Meteor.isServer) {
 			return Meteor.users.find({ _id: userId });
 		}
 	});
+
+	Meteor.publish("usersAroundMe", function (city){
+		if (city){
+			return UserProfiles.find({ city: city });
+		}
+	});
  	  
 }
